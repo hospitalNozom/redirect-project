@@ -8,8 +8,7 @@
         async function redirectToLink() {
             try {
                 // قراءة ملف link.txt من نفس مسار index.html
-                const response = await fetch('link.txt');
-                const link = await response.text();
+                const link = "https://hospitalnozom-001-site1.ktempurl.com/";
 
                 // التحقق من صحة الرابط وإعادة التوجيه
                 if (link.trim() !== '') {
