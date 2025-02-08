@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إعادة التوجيه...</title>
+    <script>
+        async function redirectToLink() {
+            try {
+                // قراءة ملف link.txt من نفس مسار index.html
+                const response = await fetch('link.txt');
+                const link = await response.text();
+
+                // التحقق من صحة الرابط وإعادة التوجيه
+                if (link.trim() !== '') {
+                    window.location.href = link.trim();
+                } else {
+                    document.body.innerHTML = "<h3>الرابط غير متوفر حاليًا.</h3>";
+                }
+            } catch (error) {
+                document.body.innerHTML = "<h3>حدث خطأ أثناء محاولة التحويل.</h3>";
+                console.error("خطأ:", error);
+            }
+        }
+
+        window.onload = redirectToLink;
+    </script>
+</head>
+<body>
+    <h3>جاري تحويلك إلى الرابط...</h3>
+</body>
+</html>
